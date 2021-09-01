@@ -55,12 +55,11 @@ while True:
             best_match_index = np.argmin(face_distances)
             if matches[best_match_index]:
                 name = known_face_names[best_match_index]
+                print(name)
 
             face_names.append(name)
 
     process_this_frame = not process_this_frame
-
-
 
     for (top, right, bottom, left), name in zip(face_locations, face_names):
 
@@ -68,7 +67,6 @@ while True:
         right *= 4
         bottom *= 4
         left *= 4
-
 
         cv2.rectangle(frame, (left, top), (right, bottom), (0, 0, 255), 2)
 
